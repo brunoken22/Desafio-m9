@@ -1,9 +1,10 @@
 import SibApiV3Sdk from "sib-api-v3-sdk";
 SibApiV3Sdk.ApiClient.instance.authentications["api-key"].apiKey =
    process.env.SENDINBLUE;
+const tranEmailApi = new SibApiV3Sdk.TransactionalEmailsApi();
 
-export function sendinblue(data) {
-   new SibApiV3Sdk.TransactionalEmailsApi()
+export async function sendinblue(data) {
+   const email = await tranEmailApi
       .sendTransacEmail({
          subject: "Aqui esta tu codigo de verificación!",
          sender: { email: "bruno_am_22@hotmail.com", name: "Bruno Ken" },
@@ -13,15 +14,17 @@ export function sendinblue(data) {
       })
       .then(
          function (data) {
-            console.log(data);
+            console.log("ok.", data);
          },
          function (error) {
-            console.error(error);
+            console.error("e", error);
          }
       );
+   return email;
 }
-export function sendinblueCompra(data) {
-   new SibApiV3Sdk.TransactionalEmailsApi()
+
+export async function sendinblueCompra(data) {
+   const email = await tranEmailApi
       .sendTransacEmail({
          subject: "Gracias por tu compra!",
          sender: { email: "bruno_am_22@hotmail.com", name: "Bruno Ken" },
@@ -37,4 +40,5 @@ export function sendinblueCompra(data) {
             console.error(error);
          }
       );
+   return email;
 }

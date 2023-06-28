@@ -21,7 +21,7 @@ export default async function (req, res) {
             await user.pull();
             console.log(user.data);
 
-            sendinblueCompra({
+            await sendinblueCompra({
                email: user.data.email,
                name: user.data.name,
                order: order.external_reference,
