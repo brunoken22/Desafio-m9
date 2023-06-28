@@ -28,7 +28,7 @@ export async function createPreferenceControllers(info, productId, token) {
       },
       external_reference: order.id,
       notification_url:
-         "http://desafio-m9-two.vercel.app/api/webhooks/mercadopago",
+         "https://webhook.site/db43f431-c231-4081-9bce-33db19cc668f",
    });
    return {
       url: preference.init_point,

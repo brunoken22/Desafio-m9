@@ -10,7 +10,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse, token: any) {
       req.query.productId,
       token.id
    );
-   res.send(product);
+   res.status(200).send(product);
 }
 const validacion = schemaMiddelware(handler);
 const met = methods({

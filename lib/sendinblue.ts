@@ -30,7 +30,7 @@ export async function sendinblueCompra(data) {
          sender: { email: "bruno_am_22@hotmail.com", name: "Bruno Ken" },
          replyTo: { email: "bruno_am_22@hotmail.com", name: "Bruno Ken" },
          to: [{ name: data.name, email: data.email }],
-         htmlContent: `<h1>Muchas gracias por tu compra con el Id del order:${data.order} desde el equipo de <strong>Bruno Ken</strong></h1>`,
+         htmlContent: `<p>Muchas gracias por tu compra con el Id del order:" ${data.order} " desde el equipo de <strong>Bruno Ken</strong></p>`,
       })
       .then(
          function (data) {
