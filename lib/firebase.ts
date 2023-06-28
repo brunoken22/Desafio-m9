@@ -1,7 +1,6 @@
 import admin from "firebase-admin";
 
 const serviceAccount = JSON.parse(process.env.FIREBASE_CONNECTION);
-// console.log(admin.app.length);
 
 if (!admin.apps.length) {
    admin.initializeApp({

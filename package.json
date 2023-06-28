@@ -1,5 +1,5 @@
 {
-  "name": "passwordless",
+  "name": "Desafio-m9",
   "version": "1.0.0",
   "main": "index.js",
   "author": "bruno <bruno_am_22@hotmail.com>",
@@ -15,6 +15,9 @@
     "@esbuild-kit/esm-loader": "^2.5.5",
     "@types/random-seed": "^0.3.3",
     "@types/react": "^18.2.9",
+    "airtable": "^0.12.1",
+    "algolia": "^0.0.0",
+    "algoliasearch": "^4.18.0",
     "ava": "^5.3.1",
     "date-fns": "^2.30.0",
     "firebase-admin": "^11.9.0",

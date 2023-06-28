@@ -25,4 +25,8 @@ export class Order {
       newUser.data = data;
       return newUserSnap;
    }
+   static async searchOrder(id: string) {
+      const order = await collection.where("userId", "==", id).get();
+      return order.docs;
+   }
 }

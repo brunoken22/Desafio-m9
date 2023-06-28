@@ -57,7 +57,8 @@ export async function generateToken(email: string, code: number) {
    if (diferencia >= 0) return "agotado";
    if (auth.data.code == code) {
       const tokenGen = token(auth.data.userId);
-      return tokenGen;
+
+      return { tokenGen, authId: auth.ref.id };
    }
 
    return "ninguno";

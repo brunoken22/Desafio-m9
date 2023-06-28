@@ -18,7 +18,9 @@ export class User {
    async push() {
       this.ref.update(this.data);
    }
-
+   async modData() {
+      this.ref.set(this.data);
+   }
    static async create(data) {
       const newUserSnap = await collection.add(data);
       const newUser = new User(newUserSnap.id);
