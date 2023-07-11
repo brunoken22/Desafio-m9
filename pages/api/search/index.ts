@@ -2,8 +2,11 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { getOffsetAndLimitFomReq } from "lib/request";
 import methods from "micro-method-router";
 import { index } from "lib/algolia";
+import { handlerCors } from "../middelware";
 export default methods({
    async get(req: NextApiRequest, res: NextApiResponse) {
+      await handlerCors(req, res);
+
       const { finalLimit, finalOffset } = getOffsetAndLimitFomReq(req);
 
       const respuestaAlgolia = await index.search(req.query.q as string, {

@@ -1,9 +1,11 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import methods from "micro-method-router";
 import { generateToken } from "lib/controllers/auth";
+import { handlerCors } from "../middelware";
 
 export default methods({
    async post(req: NextApiRequest, res: NextApiResponse) {
+      await handlerCors(req, res);
       const token = await generateToken(req.body.email, req.body.code);
       if (!token) {
          res.send("Faltan datos");
