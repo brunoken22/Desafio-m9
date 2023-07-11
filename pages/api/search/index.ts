@@ -14,9 +14,9 @@ export default methods({
          page: finalOffset > 1 ? Math.floor(finalOffset / finalLimit) : 0,
       });
 
-      const results = respuestaAlgolia.hits.map((r) => (r as any).Name);
+      // const results = respuestaAlgolia.hits.map((r) => (r as any).Name);
       res.send({
-         results,
+         results: respuestaAlgolia.hits,
          pagination: {
             limit: finalLimit,
             offset: finalOffset,
