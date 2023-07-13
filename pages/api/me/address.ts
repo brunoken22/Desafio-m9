@@ -5,7 +5,7 @@ import { modAllUser } from "lib/controllers/user";
 import { handlerCors } from "../middelware";
 
 async function handler(req: NextApiRequest, res: NextApiResponse, token: any) {
-   await handlerCors(req, res);
+   // await handlerCors(req, res);
 
    const user = await modAllUser(req.body, token.id);
    res.send(user);

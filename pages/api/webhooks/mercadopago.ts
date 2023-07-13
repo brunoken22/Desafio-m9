@@ -4,7 +4,7 @@ import { User } from "lib/models/user";
 import { sendinblueCompra } from "lib/sendinblue";
 import { handlerCors } from "../middelware";
 export default async function (req, res) {
-   await handlerCors(req, res);
+   // await handlerCors(req, res);
 
    const { id, topic } = req.query;
 
