@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import methods from "micro-method-router";
 import { searchProductById } from "lib/controllers/products";
-import { handlerCors } from "../middelware";
+import { handlerCors } from "lib/middelware";
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
    const { id } = req.query;
