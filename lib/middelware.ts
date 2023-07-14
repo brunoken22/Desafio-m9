@@ -3,8 +3,8 @@ import parseBearerToken from "parse-bearer-token";
 import { decode } from "lib/jwt";
 import NextCors from "nextjs-cors";
 
-export function authMiddelware(callback) {
-   return function (req: NextApiRequest, res: NextApiResponse) {
+export function authMiddelware(req, res, callback) {
+   return function () {
       const token = parseBearerToken(req);
 
       if (!token) {
@@ -36,7 +36,7 @@ export function handlerCors(callback) {
       const token = parseBearerToken(req);
 
       if (token) {
-         authMiddelware(callback);
+         authMiddelware(req, res, callback);
       }
 
       callback(req, res);
