@@ -22,10 +22,10 @@ export function authMiddelware(req, res, callback) {
 }
 
 export function handlerCors(callback) {
-   return async function (req: NextApiRequest, res: NextApiResponse) {
+   return function (req: NextApiRequest, res: NextApiResponse) {
       // Run the cors middleware
       // nextjs-cors uses the cors package, so we invite you to check the documentation https://github.com/expressjs/cors
-      await NextCors(req, res, {
+      NextCors(req, res, {
          // Options
          methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
          origin: "*",
