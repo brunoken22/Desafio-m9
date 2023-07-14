@@ -53,6 +53,10 @@ export function authMiddelware(callback) {
 
 export function handlerCors(handler: NextApiHandler): NextApiHandler {
    return async function nextApiHandlerWrappedWithNextCors(req, res) {
+      if (req.method == "OPTIONS") {
+         res.setHeader("Allow", "POST");
+         return res.status(202).json({});
+      }
       const methods = ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"];
       await NextCors(req, res, {
          methods,
