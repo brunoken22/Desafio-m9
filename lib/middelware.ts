@@ -56,7 +56,7 @@ export function handlerCors(handler: NextApiHandler): NextApiHandler {
       const methods = ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"];
       await NextCors(req, res, {
          methods,
-         origin: "CORS_ALLOWED_ORGIN",
+         origin: "*",
          optionsSuccessStatus: 200,
       });
 
