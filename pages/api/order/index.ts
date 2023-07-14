@@ -19,4 +19,4 @@ const validacion = schemaMiddelware(handler);
 const met = methods({
    post: validacion,
 });
-export default handlerCors(met);
+export default handlerCors(authMiddelware(met));

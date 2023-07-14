@@ -11,4 +11,4 @@ async function handler(req: NextApiRequest, res: NextApiResponse, token: any) {
 const met = methods({
    get: handler,
 });
-export default handlerCors(met);
+export default handlerCors(authMiddelware(met));
