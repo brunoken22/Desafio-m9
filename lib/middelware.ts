@@ -43,6 +43,7 @@ export function handlerCors(callback) {
 
          // Rest of the API logic
          if (req.method === "PATCH") {
+            console.log(req.method);
             // Agrega encabezados CORS adicionales específicos para el método PATCH
             res.setHeader("Access-Control-Allow-Methods", "PATCH");
             res.setHeader("Access-Control-Allow-Headers", "Content-Type");
