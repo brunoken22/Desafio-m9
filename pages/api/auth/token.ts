@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import methods from "micro-method-router";
 import { generateToken } from "lib/controllers/auth";
-import { handlerCors } from "../middelware";
+import { handlerCors } from "lib/middelware";
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
    const token = await generateToken(req.body.email, req.body.code);

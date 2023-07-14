@@ -2,10 +2,10 @@ import { getMerchantOrder } from "lib/mercadopago";
 import { Order } from "lib/models/order";
 import { User } from "lib/models/user";
 import { sendinblueCompra } from "lib/sendinblue";
-import { handlerCors } from "../middelware";
-export default async function (req, res) {
-   // await handlerCors(req, res);
+import { handlerCors } from "lib/middelware";
+import methods from "micro-method-router";
 
+async function handler(req, res) {
    const { id, topic } = req.query;
 
    if (topic == "merchant_order") {
@@ -34,3 +34,8 @@ export default async function (req, res) {
       }
    }
 }
+const handlerAuth = methods({
+   get: handler,
+});
+
+export default handlerCors(handlerAuth);

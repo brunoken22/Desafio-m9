@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { getOffsetAndLimitFomReq } from "lib/request";
 import methods from "micro-method-router";
 import { index } from "lib/algolia";
-import { handlerCors } from "../middelware";
+import { handlerCors } from "lib/middelware";
 async function handler(req: NextApiRequest, res: NextApiResponse) {
    const { finalLimit, finalOffset } = getOffsetAndLimitFomReq(req);
 

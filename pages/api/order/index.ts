@@ -3,7 +3,7 @@ import { authMiddelware } from "lib/middelware";
 import methods from "micro-method-router";
 import { createPreferenceControllers } from "lib/controllers/orders";
 import { schemaMiddelware } from "lib/schemaMiddelware";
-import { handlerCors } from "../middelware";
+import { handlerCors } from "lib/middelware";
 
 async function handler(req: NextApiRequest, res: NextApiResponse, token: any) {
    // await handlerCors(req, res);
@@ -19,4 +19,4 @@ const validacion = schemaMiddelware(handler);
 const met = methods({
    post: validacion,
 });
-export default authMiddelware(met);
+export default handlerCors(met);

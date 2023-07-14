@@ -2,8 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { authMiddelware } from "lib/middelware";
 import methods from "micro-method-router";
 import { getOrderAll } from "lib/controllers/orders";
-import { handlerCors } from "../middelware";
-
+import { handlerCors } from "lib/middelware";
 async function handler(req: NextApiRequest, res: NextApiResponse, token: any) {
    // await handlerCors(req, res);
    const user = await getOrderAll(token.id);
@@ -12,4 +11,4 @@ async function handler(req: NextApiRequest, res: NextApiResponse, token: any) {
 const met = methods({
    get: handler,
 });
-export default authMiddelware(met);
+export default handlerCors(met);
