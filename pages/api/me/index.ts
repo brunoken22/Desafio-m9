@@ -22,6 +22,6 @@ const met = methods({
    get: handler,
    patch: modHandler,
 });
-const authMiddlewarePass = authMiddelware(handler);
+const authMiddlewarePass = authMiddelware(met);
 
 export default handlerCors(authMiddlewarePass);
