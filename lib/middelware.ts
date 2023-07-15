@@ -24,25 +24,11 @@ export function authMiddelware(callback) {
 export function handlerCors(callback) {
    try {
       return async function (req: NextApiRequest, res: NextApiResponse) {
-         if (req.method === "PATCH") {
-            console.log(req.method);
-            // Agrega encabezados CORS adicionales específicos para el método PATCH
-            res.setHeader("Access-Control-Allow-Methods", "PATCH");
-            res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-         }
          // Run the cors middleware
          // nextjs-cors uses the cors package, so we invite you to check the documentation https://github.com/expressjs/cors
          await NextCors(req, res, {
             // Options
-            methods: [
-               "GET",
-               "HEAD",
-               "PUT",
-               "PATCH",
-               "POST",
-               "DELETE",
-               "OPTIONS",
-            ],
+            methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
             origin: "*",
             optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
          });
