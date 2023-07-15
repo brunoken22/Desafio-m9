@@ -42,16 +42,3 @@ export function handlerCors(callback) {
       console.log(e);
    }
 }
-
-// export function handlerCors(handler: NextApiHandler): NextApiHandler {
-//    return async function nextApiHandlerWrappedWithNextCors(req, res) {
-//       const methods = ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"];
-//       await NextCors(req, res, {
-//          methods,
-//          origin: "*",
-//          optionsSuccessStatus: 200,
-//       });
-
-//       return handler(req, res);
-//    };
-// }
