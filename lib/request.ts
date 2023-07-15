@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 export function getOffsetAndLimitFomReq(
    req: NextApiRequest,
    maxLimit = 100,
-   maxOffset = 10
+   maxOffset = 100000
 ) {
    const limit = parseInt((req.query.limit as string) || "0");
    const offset = parseInt((req.query.offset as string) || "0");

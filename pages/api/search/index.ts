@@ -5,10 +5,12 @@ import { index } from "lib/algolia";
 import { handlerCors } from "lib/middelware";
 async function handler(req: NextApiRequest, res: NextApiResponse) {
    const { finalLimit, finalOffset } = getOffsetAndLimitFomReq(req);
-
+   // console.log(finalLimit, finalOffset);
    const respuestaAlgolia = await index.search(req.query.q as string, {
       hitsPerPage: finalLimit,
-      page: finalOffset > 1 ? Math.floor(finalOffset / finalLimit) : 0,
+      // page: finalOffset > 1 ? Math.floor(finalOffset / finalLimit) : 0,
+      offset: finalOffset,
+      length: finalLimit,
    });
 
    // const results = respuestaAlgolia.hits.map((r) => (r as any).Name);
