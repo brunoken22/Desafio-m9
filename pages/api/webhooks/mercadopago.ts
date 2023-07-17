@@ -7,7 +7,7 @@ import methods from "micro-method-router";
 
 async function handler(req, res) {
    const { id, topic } = req.query;
-
+   console.log(id, topic);
    if (topic == "merchant_order") {
       const order = await getMerchantOrder(id);
       if (order.order_status == "paid") {
