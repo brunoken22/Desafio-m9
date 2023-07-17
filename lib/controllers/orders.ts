@@ -26,6 +26,7 @@ export async function createPreferenceControllers(info, productId, token) {
          success: "https://desafio-m8-d396d.web.app",
          pending: "https://desafio-m8-d396d.web.app/login",
       },
+      auto_return: "approved",
       external_reference: order.id,
       notification_url:
          "https://desafio-m9-two.vercel.app/api/webhooks/mercadopago",
