@@ -35,7 +35,7 @@ async function handler(req, res) {
    }
 }
 const handlerAuth = methods({
-   get: handler,
+   post: handler,
 });
 
 export default handlerCors(handlerAuth);

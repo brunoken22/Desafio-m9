@@ -6,10 +6,8 @@ import { schemaMiddelware } from "lib/schemaMiddelware";
 import { handlerCors } from "lib/middelware";
 
 async function handler(req: NextApiRequest, res: NextApiResponse, token: any) {
-   // await handlerCors(req, res);
-
    const product = await createPreferenceControllers(
-      req.body,
+      req.body || {},
       req.query.productId,
       token.id
    );
