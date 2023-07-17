@@ -23,7 +23,7 @@ export async function createPreferenceControllers(info, productId, token) {
          },
       ],
       back_urls: {
-         success: "https://desafio-m8-d396d.web.app",
+         success: "https://desafio-m10-weld.vercel.app/product/" + productId,
          pending: "https://desafio-m8-d396d.web.app/login",
       },
       auto_return: "approved",
