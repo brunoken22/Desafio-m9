@@ -1,7 +1,6 @@
 import SibApiV3Sdk from "sib-api-v3-sdk";
-import image from "../image-2.png";
 const img = new Image();
-img.src = image;
+img.src = "../image-2.png";
 SibApiV3Sdk.ApiClient.instance.authentications["api-key"].apiKey =
    process.env.SENDINBLUE;
 const tranEmailApi = new SibApiV3Sdk.TransactionalEmailsApi();
