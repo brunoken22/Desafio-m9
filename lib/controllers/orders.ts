@@ -14,8 +14,8 @@ export async function createPreferenceControllers(info, productId, token) {
       items: [
          {
             title: product["Name"],
-            description: "description de prueba",
-            picture_url: "http://www.myapp.com/myimage.jpg",
+            description: product["Name"],
+            picture_url: product["images"][0],
             category_id: "car_electronics",
             quantity: 1,
             currency_id: "ARS",
