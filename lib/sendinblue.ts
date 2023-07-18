@@ -1,6 +1,7 @@
 import SibApiV3Sdk from "sib-api-v3-sdk";
-const img = new Image();
-img.src = "../image-2.png";
+const img =
+   "https://res.cloudinary.com/dy26iktoi/image/upload/v1689705791/email%20desafio.png";
+
 SibApiV3Sdk.ApiClient.instance.authentications["api-key"].apiKey =
    process.env.SENDINBLUE;
 const tranEmailApi = new SibApiV3Sdk.TransactionalEmailsApi();
