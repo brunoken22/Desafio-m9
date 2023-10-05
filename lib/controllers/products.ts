@@ -31,7 +31,7 @@ export async function favoriteProduct(token: string, body: ProductFavorito) {
   if (user.data.favorite && user.data.favorite.includes(body.id)) {
     const indiceEliminar = user.data.favorite.indexOf(body.id);
     user.data.favorite.splice(indiceEliminar, 1);
-    resultFavorite = false;
+    resultFavorite = user.data;
     await user.push();
     return resultFavorite;
   }
