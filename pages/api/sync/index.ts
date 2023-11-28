@@ -21,7 +21,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
         };
       });
       index.saveObjects(newData);
-      res.status(200).json(newData);
+      res.status(200).json({message: 'Todo actualizado'});
     });
 }
 const met = methods({
