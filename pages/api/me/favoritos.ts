@@ -5,7 +5,6 @@ import {handlerCors, authMiddelware} from 'lib/middelware';
 
 async function handler(req: NextApiRequest, res: NextApiResponse, token: any) {
   const product = await productAllFavoritos(token.id);
-
   res.send(product);
 }
 

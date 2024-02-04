@@ -11,17 +11,20 @@ export async function searchProductById(id: string) {
 export async function productAllFavoritos(token: string) {
   const user = new User(token);
   await user.pull();
-  const results = (await index.getObjects(user.data.favorite)).results;
-  const resultsProduct = results.map((item: any) => {
-    return {
-      name: item.Name,
-      price: item['Unit cost'],
-      id: item.objectID,
-      img: item.Images[0].url,
-    };
-  });
+  if (user.data.favorite?.length) {
+    const results = (await index.getObjects(user.data.favorite)).results;
+    const resultsProduct = results.map((item: any) => {
+      return {
+        name: item.Name,
+        price: item['Unit cost'],
+        id: item.objectID,
+        img: item.Images[0].url,
+      };
+    });
 
-  return resultsProduct;
+    return resultsProduct;
+  }
+  return false;
 }
 
 export async function favoriteProduct(token: string, body: ProductFavorito) {
