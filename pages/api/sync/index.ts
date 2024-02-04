@@ -5,24 +5,30 @@ import {handlerCors} from 'lib/middelware';
 import methods from 'micro-method-router';
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
+  let newData = [];
   base('Furniture')
     .select({
       view: 'All furniture',
     })
-    .firstPage(function (err, records) {
-      if (err) {
-        console.error(err);
-        return;
+    .eachPage(
+      async function page(records, fetchNextPage) {
+        newData = records.map(function (record) {
+          return {
+            objectID: record.id,
+            ...record.fields,
+          };
+        });
+
+        fetchNextPage();
+      },
+      async function done(err) {
+        if (err) {
+          return;
+        }
+        await index.replaceAllObjects(newData);
+        res.status(200).json(newData.length);
       }
-      const newData = records.map(function (record) {
-        return {
-          objectID: record.id,
-          ...record.fields,
-        };
-      });
-      index.saveObjects(newData);
-      res.status(200).json({message: 'Todo actualizado'});
-    });
+    );
 }
 const met = methods({
   get: handler,
