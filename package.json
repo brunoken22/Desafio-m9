@@ -15,7 +15,7 @@
     "@esbuild-kit/esm-loader": "^2.5.5",
     "@types/random-seed": "^0.3.3",
     "@types/react": "^18.2.9",
-    "airtable": "^0.12.1",
+    "airtable": "^0.12.2",
     "algolia": "^0.0.0",
     "algoliasearch": "^4.18.0",
     "ava": "^5.3.1",
@@ -50,5 +50,6 @@
     "extensions": {
       "ts": "module"
     }
-  }
+  },
+  "packageManager": "yarn@4.4.0+sha512.91d93b445d9284e7ed52931369bc89a663414e5582d00eea45c67ddc459a2582919eece27c412d6ffd1bd0793ff35399381cb229326b961798ce4f4cc60ddfdb"
 }

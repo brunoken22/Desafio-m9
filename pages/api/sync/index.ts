@@ -18,14 +18,11 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
             ...record.fields,
           };
         });
-
         fetchNextPage();
       },
-      async function done(err) {
-        if (err) {
-          return;
-        }
-        await index.replaceAllObjects(newData);
+      function done() {
+        console.log(newData);
+        // await index.replaceAllObjects(newData);
         res.status(200).json(newData.length);
       }
     );
