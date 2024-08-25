@@ -6,7 +6,7 @@ import methods from 'micro-method-router';
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   let newData = [];
-  base('Furniture')
+  return await base('Furniture')
     .select({
       view: 'All furniture',
     })
@@ -18,11 +18,11 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
             ...record.fields,
           };
         });
-        fetchNextPage();
+        await fetchNextPage();
       },
-      function done() {
-        console.log(newData);
-        // await index.replaceAllObjects(newData);
+      async function done() {
+        console.log(newData.length);
+        await index.replaceAllObjects(newData);
         res.status(200).json(newData.length);
       }
     );
@@ -30,4 +30,5 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 const met = methods({
   get: handler,
 });
+
 export default handlerCors(met);
