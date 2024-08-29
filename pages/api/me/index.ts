@@ -7,7 +7,7 @@ import {handlerCors, authMiddelware} from 'lib/middelware';
 async function handler(req: NextApiRequest, res: NextApiResponse, token: any) {
   const user = new User(token.id);
   await user.pull();
-  res.send(user.data);
+  res.status(200).send(user.data);
 }
 async function modHandler(
   req: NextApiRequest,

@@ -13,13 +13,15 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   } else if (token.message == 'agotado') {
     res.status(400).send('Código Vencido');
   }
-  const cookie = serialize('token', token.tokenGen, {
+
+  const cookieDomain = serialize('token', token.tokenGen, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    maxAge: 60 * 60 * 24 * 7, // One week
+    secure: true,
     path: '/',
+    sameSite: 'none',
   });
-  res.setHeader('Set-Cookie', cookie).send({login: true});
+
+  res.setHeader('Set-Cookie', cookieDomain).send({login: true});
   res.end();
 }
 const handlerAuth = methods({

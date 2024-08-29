@@ -21,11 +21,10 @@ export function authMiddelware(callback) {
 export function handlerCors(callback) {
   try {
     return async function (req: NextApiRequest, res: NextApiResponse) {
-      console.log(process.env.ORIGIN);
-
+      // console.log(process.env.ORIGIN);
       await NextCors(req, res, {
         methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-        origin: process.env.ORIGIN,
+        origin: process.env.ORIGIN || 'http://localhost:3000',
         optionsSuccessStatus: 200,
         credentials: true,
       });
