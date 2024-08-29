@@ -24,7 +24,7 @@ export function handlerCors(callback) {
       // console.log(process.env.ORIGIN);
       await NextCors(req, res, {
         methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-        origin: 'http://localhost:3000',
+        origin: process.env.ORIGIN,
         optionsSuccessStatus: 200,
         credentials: true,
       });
