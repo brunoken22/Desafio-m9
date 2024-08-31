@@ -13,10 +13,10 @@ async function handlerCloseUser(req: NextApiRequest, res: NextApiResponse) {
       sameSite: 'none',
     });
     res.setHeader('Set-Cookie', cookie);
-    res.send({login: true});
+    res.send({login: false});
     res.end();
   } catch (e) {
-    res.json({close: false});
+    res.json({close: true});
   }
 }
 
