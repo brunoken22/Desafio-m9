@@ -15,7 +15,6 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   }
 
   const cookieDomain = serialize('token', token.tokenGen, {
-    httpOnly: true,
     secure: true,
     path: '/',
     sameSite: 'none',

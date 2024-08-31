@@ -6,7 +6,6 @@ import {serialize} from 'cookie';
 async function handlerCloseUser(req: NextApiRequest, res: NextApiResponse) {
   try {
     const cookie = serialize('token', '', {
-      httpOnly: true,
       secure: true,
       path: '/',
       maxAge: 0,
