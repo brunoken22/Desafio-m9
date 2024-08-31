@@ -25,6 +25,7 @@ export function handlerCors(callback) {
       await NextCors(req, res, {
         methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
         origin: process.env.ORIGIN,
+        allowedHeaders: ['Content-Type', 'Authorization'],
         optionsSuccessStatus: 200,
         credentials: true,
       });
